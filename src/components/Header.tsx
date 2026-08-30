@@ -15,29 +15,29 @@ export const Header: React.FC = () => {
 
   return (
     <header className="bg-white text-[#101814] border-b-2 border-[#CFE8DA] sticky top-0 z-40 shadow-sm">
-      {/* Top Utility Bar for Judge Portals */}
+      {/* Top Utility Bar */}
       <div className="max-w-7xl mx-auto px-4 py-1.5 flex flex-wrap items-center justify-between border-b border-[#E8F5EE] text-xs gap-2">
         <div className="flex items-center gap-2">
           <span className="bg-[#E8F5EE] text-[#16834B] font-extrabold px-2.5 py-0.5 rounded-full uppercase border border-[#CFE8DA]">
-            Adaptive Accessibility Active
+            {t('adaptiveActive')}
           </span>
-          <span className="text-[#5F6B64] font-medium hidden sm:inline">Designed for 60+ Older Adults</span>
+          <span className="text-[#5F6B64] font-medium hidden sm:inline">{t('designedForSeniors')}</span>
         </div>
 
         <div className="flex items-center gap-3 font-bold text-[#5F6B64]">
           <Link to="/prompt-lab" className="hover:text-[#16834B] flex items-center gap-1">
             <Code className="w-3.5 h-3.5 text-[#16834B]" />
-            <span>Prompt Lab</span>
+            <span>{t('promptLab')}</span>
           </Link>
           <Link to="/problem" className="hover:text-[#16834B] flex items-center gap-1">
-            <span>The Problem</span>
+            <span>{t('problem')}</span>
           </Link>
           <Link to="/research" className="hover:text-[#16834B] flex items-center gap-1">
-            <span>Research</span>
+            <span>{t('research')}</span>
           </Link>
           <Link to="/demo" className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-2.5 py-0.5 rounded-full text-xs flex items-center gap-1 shadow-sm">
             <Play className="w-3 h-3 fill-current" />
-            <span>Guided Demo</span>
+            <span>{t('guidedDemo')}</span>
           </Link>
         </div>
       </div>
@@ -51,22 +51,22 @@ export const Header: React.FC = () => {
           </div>
           <div>
             <div className="text-2xl sm:text-3xl font-black tracking-tight text-[#101814]">
-              EasyLife
+              {t('appName')}
             </div>
             <p className="text-xs text-[#5F6B64] font-semibold">
-              Technology made easier.
+              {t('tagline')}
             </p>
           </div>
         </Link>
 
-        {/* Primary Desktop Navigation */}
+        {/* Primary Navigation Links */}
         <nav className="hidden md:flex items-center gap-1 bg-[#F8FAF8] p-1.5 rounded-2xl border border-[#CFE8DA]" aria-label="Main Navigation">
           {[
-            { to: '/', label: 'Home' },
-            { to: '/healthcare', label: 'Healthcare' },
-            { to: '/government', label: 'Services' },
-            { to: '/my-day', label: 'My Day' },
-            { to: '/help', label: 'Help' },
+            { to: '/', label: t('home') },
+            { to: '/healthcare', label: t('healthcare') },
+            { to: '/government', label: t('services') },
+            { to: '/my-day', label: t('myDay') },
+            { to: '/help', label: t('help') },
           ].map((nav) => (
             <Link
               key={nav.to}
@@ -119,7 +119,7 @@ export const Header: React.FC = () => {
             </select>
           </div>
 
-          {/* Full Accessibility Settings Route Button */}
+          {/* Accessibility Settings Route Button */}
           <Link
             to="/accessibility"
             className={`p-2.5 rounded-xl border transition-all flex items-center justify-center ${
@@ -128,7 +128,7 @@ export const Header: React.FC = () => {
                 : 'bg-[#F8FAF8] text-[#5F6B64] border-[#CFE8DA] hover:bg-[#E8F5EE]'
             }`}
             aria-label="Open Full Accessibility Settings"
-            title="Accessibility Settings"
+            title={t('accessibility')}
           >
             <Settings className="w-5 h-5" />
           </Link>
@@ -140,7 +140,7 @@ export const Header: React.FC = () => {
             aria-label="Go to Emergency Help"
           >
             <AlertCircle className="w-4 h-4 animate-pulse" />
-            <span className="hidden sm:inline">Emergency</span>
+            <span className="hidden sm:inline">{t('emergency')}</span>
           </Link>
         </div>
       </div>

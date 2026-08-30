@@ -23,7 +23,6 @@ import {
   Code,
   AlertTriangle,
   Users,
-  ShieldAlert,
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -35,7 +34,7 @@ export const Home: React.FC = () => {
   const [voiceQuery, setVoiceQuery] = useState('');
 
   const handleReadPage = () => {
-    speak(`Technology doesn't have to be difficult. Simple tools for everyday life — designed to be easy to read, easy to understand, and easy to use. No technical knowledge required.`, language);
+    speak(`${t('heroTitlePart1')} ${t('heroTitleHighlight')}. ${t('heroSubtitle')}. ${t('noTechRequired')}`, language);
   };
 
   const handleVoiceTrigger = () => {
@@ -48,38 +47,38 @@ export const Home: React.FC = () => {
     {
       to: '/healthcare',
       icon: HeartPulse,
-      title: 'Healthcare',
-      desc: 'Find hospitals, doctors and appointments.',
+      title: t('healthcareTitle'),
+      desc: t('healthcareDesc'),
     },
     {
       to: '/money',
       icon: WalletCards,
-      title: 'Money & Banking',
-      desc: 'Understand money and stay safer from scams.',
+      title: t('moneyTitle'),
+      desc: t('moneyDesc'),
     },
     {
       to: '/travel',
       icon: BusFront,
-      title: 'Travel',
-      desc: 'Find buses, trains and simple directions.',
+      title: t('travelTitle'),
+      desc: t('travelDesc'),
     },
     {
       to: '/government',
       icon: Landmark,
-      title: 'Government Services',
-      desc: 'Get help with government services and applications.',
+      title: t('govtTitle'),
+      desc: t('govtDesc'),
     },
     {
       to: '/emergency',
       icon: Siren,
-      title: 'Emergency',
-      desc: 'Get urgent help quickly.',
+      title: t('emergencyTitle'),
+      desc: t('emergencyDesc'),
     },
     {
       to: '/family',
       icon: UsersRound,
-      title: 'Contact Family',
-      desc: 'Call or message someone you trust.',
+      title: t('familyTitle'),
+      desc: t('familyDesc'),
     },
   ];
 
@@ -91,17 +90,17 @@ export const Home: React.FC = () => {
           {/* Small Green Pill */}
           <div className="inline-flex items-center gap-2 bg-[#E8F5EE] text-[#16834B] font-extrabold px-4 py-1.5 rounded-full text-xs sm:text-sm uppercase tracking-wide border border-[#CFE8DA]">
             <Sparkles className="w-4 h-4 fill-current" />
-            <span>DESIGNED FOR 60+ ADULTS</span>
+            <span>{t('designedForSeniors')}</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl font-black leading-tight tracking-tight text-[#101814]">
-            Technology <span className="text-[#16834B]">doesn't have to be difficult.</span>
+            {t('heroTitlePart1')}<span className="text-[#16834B]">{t('heroTitleHighlight')}</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl font-bold text-[#5F6B64] leading-relaxed">
-            Simple tools for everyday life — designed to be easy to read, easy to understand, and easy to use.
+            {t('heroSubtitle')}
           </p>
 
           {/* CTAs */}
@@ -110,7 +109,7 @@ export const Home: React.FC = () => {
               onClick={() => setIsOnboardingOpen(true)}
               className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-9 py-4 rounded-2xl text-xl shadow-md border-2 border-[#16834B] flex items-center gap-3 touch-target transition-all hover:-translate-y-0.5"
             >
-              <span>Start Here →</span>
+              <span>{t('startHere')}</span>
             </button>
 
             <button
@@ -118,14 +117,14 @@ export const Home: React.FC = () => {
               className="bg-white hover:bg-[#E8F5EE] text-[#0B3D2A] font-extrabold px-7 py-4 rounded-2xl text-lg flex items-center gap-2 border-2 border-[#0B3D2A] touch-target transition-all"
             >
               <Volume2 className="w-6 h-6 text-[#16834B]" />
-              <span>🔊 Read This Page Aloud</span>
+              <span>{t('readPageAloud')}</span>
             </button>
           </div>
 
-          {/* Small Reassurance */}
+          {/* Reassurance */}
           <p className="text-sm font-bold text-[#7A857F] flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-[#16834B]" />
-            <span>No technical knowledge required.</span>
+            <span>{t('noTechRequired')}</span>
           </p>
         </div>
       </section>
@@ -135,10 +134,10 @@ export const Home: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between border-b border-[#CFE8DA] pb-4 gap-4">
           <div className="space-y-1">
             <h2 className="text-2xl sm:text-3xl font-black text-[#101814]">
-              Your EasyLife is ready for you
+              {t('adaptiveReadyTitle')}
             </h2>
             <p className="text-base font-bold text-[#5F6B64]">
-              We've made the experience comfortable for you.
+              {t('adaptiveReadySub')}
             </p>
           </div>
 
@@ -146,17 +145,17 @@ export const Home: React.FC = () => {
             onClick={() => setIsOnboardingOpen(true)}
             className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-6 py-3 rounded-2xl text-base shadow-sm touch-target"
           >
-            Customize My Experience
+            {t('customizeExperience')}
           </button>
         </div>
 
         {/* Preference Chips */}
         <div className="flex flex-wrap gap-3 pt-1">
           {[
-            `✓ Large Text (${textSize})`,
-            `✓ Tamil (${language})`,
-            `✓ Read Aloud Active`,
-            `✓ Simple Mode Active`,
+            t('largeTextChip'),
+            `${t('languageChip')} (${language})`,
+            t('readAloudChip'),
+            t('simpleModeChip'),
           ].map((chip, idx) => (
             <span
               key={idx}
@@ -171,10 +170,10 @@ export const Home: React.FC = () => {
       {/* Voice Interaction Section */}
       <section className="bg-[#E8F5EE] rounded-3xl p-6 sm:p-8 border-2 border-[#CFE8DA] shadow-sm text-center space-y-4">
         <h2 className="text-2xl sm:text-3xl font-black text-[#101814]">
-          Tell EasyLife what you need
+          {t('tellEasyLife')}
         </h2>
         <p className="text-base font-bold text-[#5F6B64]">
-          You can speak naturally or choose an option.
+          {t('speakNaturally')}
         </p>
 
         <div className="pt-2">
@@ -190,7 +189,7 @@ export const Home: React.FC = () => {
             <Mic className="w-12 h-12" />
           </button>
           <div className="mt-3 font-extrabold text-xl text-[#0B3D2A]">
-            {isListening ? 'Listening now...' : '🎙️ Talk to EasyLife'}
+            {isListening ? t('listeningNow') : t('talkToEasyLife')}
           </div>
         </div>
 
@@ -204,8 +203,8 @@ export const Home: React.FC = () => {
       {/* Main Service Section */}
       <section className="space-y-6">
         <div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#101814]">What do you need today?</h2>
-          <p className="text-lg font-bold text-[#5F6B64]">Choose one. We'll guide you step by step.</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-[#101814]">{t('whatDoYouNeedToday')}</h2>
+          <p className="text-lg font-bold text-[#5F6B64]">{t('chooseOneGuide')}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -226,7 +225,7 @@ export const Home: React.FC = () => {
                 </div>
 
                 <div className="pt-2 flex items-center font-black text-xl text-[#16834B] gap-2">
-                  <span>Open {card.title}</span>
+                  <span>{t('open')} {card.title}</span>
                   <ArrowRight className="w-6 h-6" />
                 </div>
               </Link>
@@ -239,16 +238,16 @@ export const Home: React.FC = () => {
       <section className="bg-white rounded-3xl p-8 border-2 border-[#CFE8DA] shadow-sm space-y-6">
         <div>
           <h2 className="text-3xl font-black text-[#101814]">
-            EasyLife helps you understand what to do next.
+            {t('signatureHelpTitle')}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: '1. Explain This', desc: 'Turn complicated digital language into simple words.', icon: Sparkles },
-            { title: '2. Show Me', desc: 'Follow one clear step at a time.', icon: Footprints },
-            { title: '3. Scam Shield', desc: 'Understand warning signs in suspicious messages.', icon: ShieldCheck },
-            { title: '4. I\'m Stuck', desc: 'Get help when you don\'t know what to do next.', icon: CircleHelp },
+            { title: t('explainThisTitle'), desc: t('explainThisDesc'), icon: Sparkles },
+            { title: t('showMeTitle'), desc: t('showMeDesc'), icon: Footprints },
+            { title: t('scamShieldTitle'), desc: t('scamShieldDesc'), icon: ShieldCheck },
+            { title: t('imStuckTitle'), desc: t('imStuckDesc'), icon: CircleHelp },
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -261,45 +260,6 @@ export const Home: React.FC = () => {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Hackathon Judge Portals Header Bar */}
-      <section className="bg-[#E8F5EE] rounded-3xl p-6 border-2 border-[#CFE8DA] flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h4 className="text-xl font-black text-[#0B3D2A]">Hackathon Showcase Portals</h4>
-          <p className="text-sm font-bold text-[#5F6B64]">Inspect prompt engineering, visual problem research, and design principles.</p>
-        </div>
-
-        <div className="flex flex-wrap gap-3">
-          <Link
-            to="/prompt-lab"
-            className="bg-white hover:bg-[#E8F5EE] text-[#16834B] font-extrabold px-4 py-2.5 rounded-xl text-sm border-2 border-[#16834B] flex items-center gap-1.5 touch-target shadow-xs"
-          >
-            <Code className="w-4 h-4" />
-            <span>Prompt Lab</span>
-          </Link>
-          <Link
-            to="/problem"
-            className="bg-white hover:bg-[#E8F5EE] text-[#101814] font-extrabold px-4 py-2.5 rounded-xl text-sm border-2 border-[#CFE8DA] flex items-center gap-1.5 touch-target shadow-xs"
-          >
-            <AlertTriangle className="w-4 h-4 text-[#C88700]" />
-            <span>The Problem</span>
-          </Link>
-          <Link
-            to="/research"
-            className="bg-white hover:bg-[#E8F5EE] text-[#101814] font-extrabold px-4 py-2.5 rounded-xl text-sm border-2 border-[#CFE8DA] flex items-center gap-1.5 touch-target shadow-xs"
-          >
-            <Users className="w-4 h-4 text-[#16834B]" />
-            <span>Research</span>
-          </Link>
-          <Link
-            to="/demo"
-            className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-4 py-2.5 rounded-xl text-sm flex items-center gap-1.5 touch-target shadow"
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>Guided Demo Mode</span>
-          </Link>
         </div>
       </section>
     </div>

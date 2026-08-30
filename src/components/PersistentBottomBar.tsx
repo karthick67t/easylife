@@ -46,27 +46,27 @@ export const PersistentBottomBar: React.FC = () => {
           aria-label="Go to Home"
         >
           <Home className="w-6 h-6 mb-0.5" />
-          <span>Home</span>
+          <span>{t('home')}</span>
         </Link>
 
-        {/* Emergency Help Button (Red Only Here) */}
+        {/* Emergency Help Button */}
         <button
           onClick={() => setIsEmergencyOpen(true)}
           className="bg-[#C62828] hover:bg-[#b02323] text-white font-black px-3 py-2 rounded-2xl flex flex-col sm:flex-row items-center justify-center gap-1.5 shadow border-2 border-red-300 transition-all text-xs sm:text-sm touch-target"
           aria-label="Emergency Help"
         >
           <AlertCircle className="w-6 h-6 animate-pulse" />
-          <span className="leading-tight text-center sm:text-left">EMERGENCY</span>
+          <span className="leading-tight text-center sm:text-left">{t('emergencyBtn')}</span>
         </button>
 
-        {/* I'm Stuck Button (Persistent Green/Mint) */}
+        {/* I'm Stuck Button */}
         <button
           onClick={() => setIsStuckOpen(true)}
           className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-black px-3.5 py-2.5 rounded-2xl flex items-center justify-center gap-1.5 shadow border-2 border-[#16834B] transition-all text-xs sm:text-base touch-target"
           aria-label="I'm Stuck — Help Me"
         >
           <HelpCircle className="w-6 h-6" />
-          <span className="leading-tight text-center sm:text-left">🟠 I'm Stuck — Help Me</span>
+          <span className="leading-tight text-center sm:text-left">{t('imStuckBtn')}</span>
         </button>
 
         {/* Read Aloud Button */}
@@ -80,7 +80,7 @@ export const PersistentBottomBar: React.FC = () => {
           aria-label="Read Page Aloud"
         >
           <Volume2 className="w-6 h-6 mb-0.5" />
-          <span>{isSpeaking ? 'Stop' : '🔊 Read Aloud'}</span>
+          <span>{isSpeaking ? 'Stop' : t('readAloudBtn')}</span>
         </button>
 
         {/* EasyTalk Voice Button */}
@@ -94,7 +94,7 @@ export const PersistentBottomBar: React.FC = () => {
           aria-label="Speak to EasyTalk"
         >
           <Mic className="w-6 h-6 mb-0.5 text-[#16834B]" />
-          <span>{isListening ? 'Listening...' : 'EasyTalk'}</span>
+          <span>{isListening ? t('listeningNow') : t('easyTalkBtn')}</span>
         </button>
       </div>
     </div>
