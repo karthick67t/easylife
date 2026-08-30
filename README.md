@@ -13,6 +13,17 @@
 
 ---
 
+## 🌐 Dynamic Multi-Language Engine Fixed & Fully Verified
+
+EasyLife includes a real-time reactive multi-language translation engine (`LanguageContext.tsx` + `useLanguage()`). Switching the language selector dynamically translates the **entire application** across:
+- **English**: Default clean public-service text
+- **Tamil (தமிழ்)**: Full Tamil translation (e.g. *"ஈசி லைஃப் (EasyLife)"*, *"மருத்துவ சேவை"*, *"அவசர உதவி"*)
+- **Hindi (हिंदी)**: Full Hindi translation (e.g. *"स्वास्थ्य सेवा"*, *"आपातकालीन"*, *"मैं अटक गया हूँ"*)
+- **Malayalam (മലയാളം)**: Full Malayalam translation (e.g. *"ആരോഗ്യം"*, *"അടിയന്തിരം"*, *"സഹായം"*)
+- **Telugu (తెలుగు)**: Full Telugu translation (e.g. *"వైద్య సేవలు"*, *"అత్యవసరం"*, *"నాకు సహాయం కావాలి"*)
+
+---
+
 ## 🎯 Problem Statement & Target Audience
 
 ### **The Target Group**: Older Adults Aged 60+
@@ -62,17 +73,8 @@ EasyLife includes a dedicated **Prompt Lab** (`/prompt-lab`) demonstrating our s
 │ 03 — ACCESSIBLE OUTPUT RESULT                           │
 │ "You need to show an ID document (Aadhaar or Passport)."│
 │ [Read Aloud Audio Transcript + Next Action Trigger]     │
-└─────────────────────────────────────────────────────────┘
+└───────────────────────────┬─────────────────────────────┘
 ```
-
-### Enforced AI Accessibility Rules
-1. Use plain language without technical terminology.
-2. Keep sentences short and active (max 2 sentences per response).
-3. Offer one clear action at a time.
-4. Never assume digital literacy or technical background.
-5. Provide an optional read-aloud speech synthesis output.
-6. Always offer a human help / trusted family contact option.
-7. Require explicit double confirmation for sensitive or irreversible actions.
 
 ---
 
@@ -115,11 +117,6 @@ EasyLife includes a dedicated **Prompt Lab** (`/prompt-lab`) demonstrating our s
 
 ## 📦 Local Setup & Running Instructions
 
-### **Prerequisites**
-- Node.js (v18 or higher)
-- npm (v9 or higher)
-
-### **Installation Steps**
 ```bash
 # 1. Clone the repository
 git clone https://github.com/karthick67t/easylife.git
@@ -140,15 +137,10 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to test the 
 
 ## 🚀 Production Build & Deployment
 
-### **Build for Production**
 ```bash
 npm run build
 ```
 Generates clean, minified production assets in the `dist/` directory with zero TypeScript or CSS errors.
-
-### **Deploy to Vercel / Netlify**
-- **Vercel**: Included `vercel.json` rewrite configuration handles single-page application routing automatically.
-- **GitHub Pages**: Uses `HashRouter` to prevent 404 route errors on static hosts.
 
 ---
 
@@ -174,22 +166,3 @@ Generates clean, minified production assets in the `dist/` directory with zero T
 - [x] **18. Important action confirmation**: Confidence Check and emergency modal double-confirmation workflows.
 - [x] **19. Mobile responsive**: Fully responsive mobile-first grid layout tested down to 320px screens.
 - [x] **20. No advanced technical knowledge required**: Includes Explain This, Show Me, and I'm Stuck assistive tools.
-
----
-
-## 📽️ Pitch Presentation & Video Walkthrough Guide
-
-Follow the **90-Second Pitch Demo Bar** at the top of the app or navigate to `/demo`:
-1. **Step 1: Meet Lakshmi (Age 68)** — Explain digital difficulty and fear of mistakes.
-2. **Step 2: Adapt EasyLife** — Switch to Tamil, Extra Large Text, and Guided Mode live.
-3. **Step 3: Explain This** — Transform official pension jargon into 1 simple sentence.
-4. **Step 4: Show Me** — Visually guide through a doctor appointment booking.
-5. **Step 5: Scam Shield** — Analyze a suspicious bank SMS for warning signs.
-6. **Step 6: I'm Stuck** — Demonstrate non-judgmental recovery and trusted family check-in.
-
----
-
-## 📄 License & Attribution
-
-Developed with ❤️ for the Prompt Engineering Hackathon (August 30, 2026).
-All original work. Open-source libraries used: React, TypeScript, Tailwind CSS, Lucide Icons, React Router.
