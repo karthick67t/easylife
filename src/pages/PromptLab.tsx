@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu, Sparkles, CheckCircle2, ShieldCheck, Volume2, ArrowRight, Code, FileText, Lock } from 'lucide-react';
+import { Code, Sparkles, Volume2, ArrowRight, CheckCircle2, User, ShieldCheck } from 'lucide-react';
 import { useTextToSpeech } from '../hooks/useTextToSpeech';
 
 export const PromptLab: React.FC = () => {
@@ -7,145 +7,93 @@ export const PromptLab: React.FC = () => {
   const [inputText, setInputText] = useState(
     "Applicants must submit proof of identity along with supporting documentation prior to direct benefit disbursement."
   );
-  const [selectedLanguage, setSelectedLanguage] = useState("Tamil");
-
-  const simulatedOutput = {
-    simple: "You need to show an ID document (Aadhaar or Passport) before receiving your monthly pension money.",
-    nextAction: "Press 'Show Me' to see which document to upload.",
-    readAloudText: "You need to show an ID document before receiving your monthly pension money.",
-  };
-
-  const systemPromptArchitecture = [
-    { key: "Role", value: "You are EasyLife, an adaptive accessibility-first AI companion." },
-    { key: "User Context", value: "Older adult (aged 60+) with limited digital literacy and reduced vision." },
-    { key: "Task", value: "Convert complex digital, legal, or official text into 1-sentence plain language." },
-    { key: "Accessibility Constraints", value: "Maximum 2 short sentences, 18px+ font size, no technical jargon, active voice." },
-    { key: "Safety Rules", value: "Never ask for OTPs, ATM PINs, or banking credentials. Confirm before sensitive actions." },
-    { key: "Language Preference", value: `${selectedLanguage} + English fallback.` },
-    { key: "Output Structure", value: "JSON: { simpleText, nextStepAction, audioTranscript }" },
-  ];
 
   return (
     <div className="space-y-8 pb-12">
       {/* Header */}
-      <div className="bg-[#101A2E] text-white rounded-3xl p-6 sm:p-8 border-4 border-[#35D6C5] shadow-2xl space-y-4">
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#CFE8DA] shadow-sm space-y-2 text-[#101814]">
         <div className="flex items-center gap-3">
-          <div className="w-14 h-14 bg-[#35D6C5] text-[#070B16] rounded-2xl flex items-center justify-center font-black shadow-lg">
-            <Cpu className="w-8 h-8" />
+          <div className="w-14 h-14 bg-[#16834B] text-white rounded-2xl flex items-center justify-center font-black shadow-sm">
+            <Code className="w-8 h-8" />
           </div>
           <div>
-            <span className="bg-[#35D6C5]/20 text-[#35D6C5] font-extrabold px-3 py-1 rounded-full text-xs uppercase tracking-wide border border-[#35D6C5]/40">
+            <span className="bg-[#E8F5EE] text-[#16834B] font-extrabold px-3 py-1 rounded-full text-xs uppercase border border-[#CFE8DA]">
               Prompt Engineering Showcase Page
             </span>
-            <h1 className="text-3xl sm:text-4xl font-black text-[#F4F7FB] mt-1">EasyLife Prompt Lab</h1>
-            <p className="text-base sm:text-lg text-[#B8C4D8] font-medium">
-              See how structured prompt engineering turns complex digital jargon into safe, accessible guidance.
+            <h1 className="text-3xl sm:text-4xl font-black text-[#101814] mt-1">EasyLife Prompt Lab</h1>
+            <p className="text-base sm:text-lg text-[#5F6B64] font-bold">
+              See how EasyLife turns complicated information into accessible guidance using structured prompts.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Structured Prompt Architecture Breakdown */}
-      <section className="bg-[#101A2E] rounded-3xl p-6 sm:p-8 border-2 border-[#1C2B49] shadow-xl space-y-6">
-        <div className="flex items-center gap-3 border-b border-[#1C2B49] pb-4">
-          <Code className="w-7 h-7 text-[#35D6C5]" />
-          <div>
-            <h2 className="text-2xl font-extrabold text-[#F4F7FB]">Structured Prompt Architecture</h2>
-            <p className="text-sm font-semibold text-[#8492A8]">How EasyLife guarantees reliable, non-hallucinating accessibility outputs.</p>
-          </div>
-        </div>
+      {/* 3-Stage Visual Showcase Architecture */}
+      <section className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#CFE8DA] shadow-sm space-y-8">
+        <h2 className="text-2xl font-black text-[#101814] border-b border-[#CFE8DA] pb-4">
+          Structured 3-Stage Prompt Pipeline
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {systemPromptArchitecture.map((item, idx) => (
-            <div key={idx} className="bg-[#0B1222] p-4 rounded-2xl border border-[#2B3E68] space-y-1">
-              <div className="text-xs font-bold text-[#35D6C5] uppercase tracking-wide">{item.key}</div>
-              <div className="text-base font-semibold text-[#F4F7FB]">{item.value}</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+          {/* Stage 1: User Context */}
+          <div className="bg-[#F8FAF8] p-6 rounded-3xl border-2 border-[#CFE8DA] space-y-3 relative">
+            <div className="w-10 h-10 bg-[#16834B] text-white rounded-full flex items-center justify-center font-black text-lg">
+              01
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Interactive Prompt Transformation Demo */}
-      <section className="bg-[#101A2E] rounded-3xl p-6 sm:p-8 border-2 border-[#1C2B49] shadow-xl space-y-6">
-        <div className="flex flex-wrap items-center justify-between border-b border-[#1C2B49] pb-4 gap-4">
-          <h2 className="text-2xl font-extrabold text-[#F4F7FB] flex items-center gap-2">
-            <Sparkles className="w-7 h-7 text-[#FFC857]" />
-            <span>Live Prompt Transformation Engine</span>
-          </h2>
-
-          {/* Language Selector */}
-          <div className="flex items-center gap-2 bg-[#0B1222] px-3 py-1.5 rounded-xl border border-[#2B3E68]">
-            <span className="text-xs text-[#8492A8] font-bold">Target Context:</span>
-            <select
-              value={selectedLanguage}
-              onChange={(e) => setSelectedLanguage(e.target.value)}
-              className="bg-transparent text-[#35D6C5] font-bold text-sm focus:outline-none cursor-pointer"
-            >
-              {['Tamil', 'English', 'Hindi', 'Malayalam', 'Telugu'].map((l) => (
-                <option key={l} value={l} className="bg-[#070B16] text-white">{l}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Input Complex Jargon */}
-          <div className="space-y-3">
-            <label className="text-sm font-bold text-[#B8C4D8] uppercase tracking-wide block">
-              1. Original Complex Jargon:
-            </label>
-            <textarea
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              rows={4}
-              className="w-full bg-[#0B1222] text-[#F4F7FB] p-4 rounded-2xl border-2 border-[#2B3E68] font-medium text-base focus:border-[#35D6C5] focus:ring-4 focus:ring-[#35D6C5]/20"
-            />
+            <h3 className="text-xl font-black text-[#101814] uppercase tracking-wide">USER CONTEXT</h3>
+            <div className="space-y-2 text-base font-bold text-[#5F6B64]">
+              <div className="bg-white p-3 rounded-xl border border-[#CFE8DA]">• Older adult (60+)</div>
+              <div className="bg-white p-3 rounded-xl border border-[#CFE8DA]">• Limited digital literacy</div>
+              <div className="bg-white p-3 rounded-xl border border-[#CFE8DA]">• Tamil preference</div>
+              <div className="bg-white p-3 rounded-xl border border-[#CFE8DA]">• Large text enabled</div>
+              <div className="bg-white p-3 rounded-xl border border-[#CFE8DA]">• Needs step-by-step guidance</div>
+            </div>
           </div>
 
-          {/* Output Transformed Result */}
-          <div className="space-y-3">
-            <label className="text-sm font-bold text-[#35D6C5] uppercase tracking-wide block flex items-center gap-1">
-              <Sparkles className="w-4 h-4" />
-              2. EasyLife Accessible Output ({selectedLanguage}):
-            </label>
-            <div className="bg-[#0B1222] p-5 rounded-2xl border-2 border-[#35D6C5] space-y-4 shadow-lg">
-              <p className="text-xl font-bold text-[#F4F7FB] leading-snug">
-                "{simulatedOutput.simple}"
+          {/* Stage 2: Accessibility Prompt */}
+          <div className="bg-[#E8F5EE] p-6 rounded-3xl border-2 border-[#16834B] space-y-3 relative">
+            <div className="w-10 h-10 bg-[#0B3D2A] text-white rounded-full flex items-center justify-center font-black text-lg">
+              02
+            </div>
+            <h3 className="text-xl font-black text-[#0B3D2A] uppercase tracking-wide">ACCESSIBILITY PROMPT</h3>
+            <p className="text-xs font-bold text-[#0B3D2A] italic">
+              "You are an accessibility-first assistant helping an adult aged 60+..."
+            </p>
+
+            <div className="space-y-1.5 text-sm font-bold text-[#0B3D2A]">
+              <div className="flex items-center gap-1.5">✓ Plain language</div>
+              <div className="flex items-center gap-1.5">✓ Short sentences</div>
+              <div className="flex items-center gap-1.5">✓ One action at a time</div>
+              <div className="flex items-center gap-1.5">✓ Explain unfamiliar terms</div>
+              <div className="flex items-center gap-1.5">✓ Offer read aloud</div>
+              <div className="flex items-center gap-1.5">✓ Never request sensitive info</div>
+              <div className="flex items-center gap-1.5">✓ Confirm important actions</div>
+            </div>
+          </div>
+
+          {/* Stage 3: Accessible Result */}
+          <div className="bg-[#F8FAF8] p-6 rounded-3xl border-2 border-[#CFE8DA] space-y-3 relative">
+            <div className="w-10 h-10 bg-[#16834B] text-white rounded-full flex items-center justify-center font-black text-lg">
+              03
+            </div>
+            <h3 className="text-xl font-black text-[#101814] uppercase tracking-wide">ACCESSIBLE RESULT</h3>
+            <div className="bg-white p-4 rounded-2xl border-2 border-[#16834B] space-y-3">
+              <p className="text-lg font-black text-[#101814]">
+                "You need to show an ID document."
               </p>
-              <div className="bg-[#101A2E] p-3 rounded-xl border border-[#2B3E68] text-sm text-[#FFC857] font-semibold flex items-center gap-2">
-                <ArrowRight className="w-4 h-4 shrink-0" />
-                <span>Next Action: {simulatedOutput.nextAction}</span>
+              <div className="text-sm font-extrabold text-[#16834B] flex items-center gap-1">
+                <ArrowRight className="w-4 h-4" />
+                <span>Here is what to do next...</span>
               </div>
               <button
-                onClick={() => speak(simulatedOutput.readAloudText, selectedLanguage)}
-                className="bg-[#35D6C5] hover:bg-[#2cb5a6] text-[#070B16] font-extrabold px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 shadow touch-target"
+                onClick={() => speak("You need to show an ID document.", "Tamil")}
+                className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-4 py-2 rounded-xl text-sm flex items-center gap-2 shadow-xs touch-target"
               >
-                <Volume2 className="w-5 h-5" />
-                <span>Test Read Aloud Engine</span>
+                <Volume2 className="w-4 h-4" />
+                <span>Read Aloud</span>
               </button>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* 7 AI Accessibility Rules */}
-      <section className="bg-[#101A2E] rounded-3xl p-6 sm:p-8 border-2 border-[#1C2B49] shadow-xl space-y-4">
-        <h2 className="text-2xl font-extrabold text-[#F4F7FB]">Enforced AI Accessibility Rules</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            "Use plain language without jargon",
-            "Keep sentences short and active",
-            "Offer one clear action at a time",
-            "Never assume technical knowledge",
-            "Provide optional read-aloud version",
-            "Always offer human help / trusted call",
-            "Require double confirmation for sensitive actions",
-          ].map((rule, idx) => (
-            <div key={idx} className="bg-[#0B1222] p-4 rounded-2xl border border-[#2B3E68] flex items-center gap-3 font-semibold text-[#B8C4D8]">
-              <CheckCircle2 className="w-5 h-5 text-[#35D6C5] shrink-0" />
-              <span>{rule}</span>
-            </div>
-          ))}
         </div>
       </section>
     </div>

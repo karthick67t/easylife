@@ -2,24 +2,25 @@
 
 @layer base {
   :root {
-    /* EasyLife Midnight Care Color Palette */
-    --bg-primary: #070B16;
-    --bg-secondary: #0B1222;
-    --bg-surface: #101A2E;
-    --bg-surface-elevated: #142039;
+    /* EasyLife Light Green + White Color System */
+    --bg-primary: #F8FAF8;
+    --bg-surface: #FFFFFF;
+    --bg-mint-soft: #E8F5EE;
 
-    --text-primary: #F4F7FB;
-    --text-secondary: #B8C4D8;
-    --text-muted: #8492A8;
+    --primary-green: #16834B;
+    --dark-green: #0B3D2A;
+    --secondary-green: #2EAA68;
 
-    --accent-primary: #35D6C5; /* Cyan */
-    --accent-secondary: #4DA3FF; /* Blue */
-    --accent-warm: #FFC857; /* Gold */
-    --accent-danger: #FF5C67;
-    --accent-success: #45D483;
+    --border-mint: #CFE8DA;
+    --border-subtle: #E2EFE7;
 
-    --border-subtle: #1C2B49;
-    --border-contrast: #2B3E68;
+    --text-primary: #101814;
+    --text-secondary: #5F6B64;
+    --text-muted: #7A857F;
+
+    --color-emergency: #C62828;
+    --color-warning: #C88700;
+    --color-success: #16834B;
   }
 
   html {
@@ -40,19 +41,20 @@
   /* High Contrast Mode Overrides */
   html.high-contrast {
     --bg-primary: #000000;
-    --bg-secondary: #0A0A0A;
     --bg-surface: #121212;
-    --bg-surface-elevated: #1E1E1E;
+    --bg-mint-soft: #1E1E1E;
+
+    --primary-green: #FFC857;
+    --dark-green: #FFD700;
+    --secondary-green: #FFC857;
+
+    --border-mint: #FFFFFF;
+    --border-subtle: #FFFFFF;
 
     --text-primary: #FFFFFF;
     --text-secondary: #FFF8DC;
     --text-muted: #FFD700;
 
-    --accent-primary: #FFC857;
-    --accent-secondary: #FFD700;
-    --accent-warm: #FFC857;
-    --border-subtle: #FFFFFF;
-    --border-contrast: #FFFFFF;
     color-scheme: dark;
   }
 
@@ -99,28 +101,27 @@
 
   /* Focus indicator for Accessibility */
   *:focus-visible {
-    outline: 4px solid #35D6C5 !important;
+    outline: 4px solid #16834B !important;
     outline-offset: 3px !important;
   }
 }
 
 /* Custom Accessibility & Touch Utilities */
 .touch-target {
-  min-width: 52px;
   min-height: 52px;
 }
 
-.midnight-card {
+.easylife-card {
   background-color: var(--bg-surface);
-  border: 2px solid var(--border-subtle);
+  border: 2px solid var(--border-mint);
   border-radius: 20px;
   color: var(--text-primary);
   padding: 24px;
 }
 
-.midnight-card-elevated {
-  background-color: var(--bg-surface-elevated);
-  border: 2px solid var(--border-contrast);
+.easylife-card-elevated {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--primary-green);
   border-radius: 24px;
   color: var(--text-primary);
   padding: 28px;

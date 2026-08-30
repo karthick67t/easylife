@@ -42,7 +42,7 @@ const AppContent: React.FC = () => {
     <LanguageProvider language={language}>
       <AppProvider>
         <Router>
-          <div className="min-h-screen flex flex-col bg-[#070B16] text-[#F4F7FB] selection:bg-[#35D6C5] selection:text-[#070B16]">
+          <div className="min-h-screen flex flex-col bg-[#F8FAF8] text-[#101814] selection:bg-[#16834B] selection:text-white">
             {/* Sticky 90-Sec Hackathon Pitch Demo Bar */}
             <HackathonDemoBar />
 

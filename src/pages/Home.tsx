@@ -18,13 +18,12 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
-  HeartHandshake,
-  FileCheck2,
   Footprints,
   CircleHelp,
   Code,
   AlertTriangle,
   Users,
+  ShieldAlert,
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -36,7 +35,7 @@ export const Home: React.FC = () => {
   const [voiceQuery, setVoiceQuery] = useState('');
 
   const handleReadPage = () => {
-    speak(`Technology should adapt to you. EasyLife makes everyday digital tasks easier to understand, safer to complete, and more comfortable to use.`, language);
+    speak(`Technology doesn't have to be difficult. Simple tools for everyday life — designed to be easy to read, easy to understand, and easy to use. No technical knowledge required.`, language);
   };
 
   const handleVoiceTrigger = () => {
@@ -50,157 +49,163 @@ export const Home: React.FC = () => {
       to: '/healthcare',
       icon: HeartPulse,
       title: 'Healthcare',
-      desc: 'Find care, doctors and appointments.',
-      accent: 'border-[#35D6C5] hover:border-[#35D6C5]',
-      badge: 'Doctors & Appointments',
+      desc: 'Find hospitals, doctors and appointments.',
     },
     {
       to: '/money',
       icon: WalletCards,
       title: 'Money & Banking',
-      desc: 'Understand money and stay safe from scams.',
-      accent: 'border-[#4DA3FF] hover:border-[#4DA3FF]',
-      badge: 'Safe Payments & Pension',
+      desc: 'Understand money and stay safer from scams.',
     },
     {
       to: '/travel',
       icon: BusFront,
       title: 'Travel',
-      desc: 'Find simple routes and transport information.',
-      accent: 'border-[#FFC857] hover:border-[#FFC857]',
-      badge: 'Bus & Train Directions',
+      desc: 'Find buses, trains and simple directions.',
     },
     {
       to: '/government',
       icon: Landmark,
-      title: 'Government',
-      desc: 'Get help with government services.',
-      accent: 'border-[#35D6C5] hover:border-[#35D6C5]',
-      badge: 'Plain Language Guides',
+      title: 'Government Services',
+      desc: 'Get help with government services and applications.',
     },
     {
       to: '/emergency',
       icon: Siren,
       title: 'Emergency',
       desc: 'Get urgent help quickly.',
-      accent: 'border-[#FF5C67] hover:border-[#FF5C67]',
-      badge: 'One-Touch Help',
     },
     {
       to: '/family',
       icon: UsersRound,
-      title: 'My Family',
-      desc: 'Contact someone you trust.',
-      accent: 'border-[#4DA3FF] hover:border-[#4DA3FF]',
-      badge: 'Priya & Arun',
+      title: 'Contact Family',
+      desc: 'Call or message someone you trust.',
     },
   ];
 
   return (
-    <div className="space-y-8 pb-12">
-      {/* Hero Banner Section */}
-      <section className="bg-[#101A2E] text-white rounded-3xl p-6 sm:p-10 shadow-2xl border-4 border-[#35D6C5] relative overflow-hidden">
-        <div className="max-w-3xl space-y-4">
-          <span className="bg-[#35D6C5]/20 text-[#35D6C5] font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm inline-flex items-center gap-1.5 uppercase tracking-wide border border-[#35D6C5]/40">
+    <div className="space-y-10 pb-12">
+      {/* Clean White Hero Section */}
+      <section className="bg-white rounded-3xl p-8 sm:p-12 border-2 border-[#CFE8DA] shadow-sm relative overflow-hidden text-[#101814]">
+        <div className="max-w-3xl space-y-6">
+          {/* Small Green Pill */}
+          <div className="inline-flex items-center gap-2 bg-[#E8F5EE] text-[#16834B] font-extrabold px-4 py-1.5 rounded-full text-xs sm:text-sm uppercase tracking-wide border border-[#CFE8DA]">
             <Sparkles className="w-4 h-4 fill-current" />
-            ADAPTIVE ACCESSIBILITY PLATFORM
-          </span>
+            <span>DESIGNED FOR 60+ ADULTS</span>
+          </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black leading-tight tracking-tight text-[#F4F7FB]">
-            Technology should adapt to you.
+          {/* Main Headline */}
+          <h1 className="text-4xl sm:text-6xl font-black leading-tight tracking-tight text-[#101814]">
+            Technology <span className="text-[#16834B]">doesn't have to be difficult.</span>
           </h1>
 
-          <p className="text-lg sm:text-2xl font-bold text-[#B8C4D8] leading-snug">
-            EasyLife makes everyday digital tasks easier to understand, safer to complete, and more comfortable to use.
+          {/* Subtitle */}
+          <p className="text-xl sm:text-2xl font-bold text-[#5F6B64] leading-relaxed">
+            Simple tools for everyday life — designed to be easy to read, easy to understand, and easy to use.
           </p>
 
-          <div className="pt-4 flex flex-wrap gap-4">
+          {/* CTAs */}
+          <div className="pt-2 flex flex-wrap items-center gap-4">
             <button
               onClick={() => setIsOnboardingOpen(true)}
-              className="bg-[#35D6C5] hover:bg-[#2cb5a6] text-[#070B16] font-extrabold px-8 py-4 rounded-2xl text-xl shadow-xl border-2 border-[#35D6C5] flex items-center gap-3 touch-target"
+              className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-9 py-4 rounded-2xl text-xl shadow-md border-2 border-[#16834B] flex items-center gap-3 touch-target transition-all hover:-translate-y-0.5"
             >
-              <span>Start My EasyLife</span>
-              <ArrowRight className="w-6 h-6" />
+              <span>Start Here →</span>
             </button>
 
             <button
               onClick={handleReadPage}
-              className="bg-[#142039] hover:bg-[#1C2B49] text-[#F4F7FB] font-extrabold px-6 py-4 rounded-2xl text-lg flex items-center gap-2 border-2 border-[#2B3E68] touch-target"
+              className="bg-white hover:bg-[#E8F5EE] text-[#0B3D2A] font-extrabold px-7 py-4 rounded-2xl text-lg flex items-center gap-2 border-2 border-[#0B3D2A] touch-target transition-all"
             >
-              <Volume2 className="w-6 h-6 text-[#35D6C5]" />
+              <Volume2 className="w-6 h-6 text-[#16834B]" />
               <span>🔊 Read This Page Aloud</span>
             </button>
           </div>
+
+          {/* Small Reassurance */}
+          <p className="text-sm font-bold text-[#7A857F] flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-[#16834B]" />
+            <span>No technical knowledge required.</span>
+          </p>
         </div>
       </section>
 
-      {/* Adaptive Status Card Banner */}
-      <section className="bg-[#101A2E] rounded-3xl p-6 border-2 border-[#1C2B49] shadow-xl flex flex-wrap items-center justify-between gap-4">
-        <div className="space-y-2">
-          <div className="text-xs font-extrabold text-[#35D6C5] uppercase tracking-wide">Adaptive Experience Engine</div>
-          <h2 className="text-2xl font-black text-[#F4F7FB]">Your EasyLife is adapted</h2>
-          <div className="flex flex-wrap gap-2 pt-1">
-            <span className="bg-[#0B1222] text-[#F4F7FB] border border-[#2B3E68] font-bold px-3 py-1 rounded-xl text-sm flex items-center gap-1.5">
-              👀 Text: {textSize}
-            </span>
-            <span className="bg-[#0B1222] text-[#F4F7FB] border border-[#2B3E68] font-bold px-3 py-1 rounded-xl text-sm flex items-center gap-1.5">
-              🌐 Language: {language}
-            </span>
-            <span className="bg-[#0B1222] text-[#35D6C5] border border-[#35D6C5]/40 font-bold px-3 py-1 rounded-xl text-sm flex items-center gap-1.5">
-              🔊 Voice Assistance Active
-            </span>
-            <span className="bg-[#0B1222] text-[#FFC857] border border-[#FFC857]/40 font-bold px-3 py-1 rounded-xl text-sm flex items-center gap-1.5">
-              👣 Guided Mode Active
-            </span>
+      {/* Adaptive Experience Card */}
+      <section className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#CFE8DA] shadow-sm space-y-4">
+        <div className="flex flex-wrap items-center justify-between border-b border-[#CFE8DA] pb-4 gap-4">
+          <div className="space-y-1">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#101814]">
+              Your EasyLife is ready for you
+            </h2>
+            <p className="text-base font-bold text-[#5F6B64]">
+              We've made the experience comfortable for you.
+            </p>
           </div>
+
+          <button
+            onClick={() => setIsOnboardingOpen(true)}
+            className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-6 py-3 rounded-2xl text-base shadow-sm touch-target"
+          >
+            Customize My Experience
+          </button>
         </div>
 
-        <button
-          onClick={() => setIsOnboardingOpen(true)}
-          className="bg-[#142039] hover:bg-[#1C2B49] text-[#35D6C5] font-extrabold px-6 py-3 rounded-2xl text-base border-2 border-[#35D6C5]/40 touch-target"
-        >
-          Customize My Experience
-        </button>
+        {/* Preference Chips */}
+        <div className="flex flex-wrap gap-3 pt-1">
+          {[
+            `✓ Large Text (${textSize})`,
+            `✓ Tamil (${language})`,
+            `✓ Read Aloud Active`,
+            `✓ Simple Mode Active`,
+          ].map((chip, idx) => (
+            <span
+              key={idx}
+              className="bg-[#E8F5EE] text-[#16834B] border border-[#CFE8DA] font-black px-4 py-2 rounded-xl text-base shadow-xs"
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
       </section>
 
-      {/* Interactive Voice Microphone Circular Widget */}
-      <section className="bg-[#101A2E] rounded-3xl p-6 sm:p-8 border-2 border-[#1C2B49] shadow-xl text-center space-y-4">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4F7FB]">
+      {/* Voice Interaction Section */}
+      <section className="bg-[#E8F5EE] rounded-3xl p-6 sm:p-8 border-2 border-[#CFE8DA] shadow-sm text-center space-y-4">
+        <h2 className="text-2xl sm:text-3xl font-black text-[#101814]">
           Tell EasyLife what you need
         </h2>
-        <p className="text-base text-[#B8C4D8] font-semibold">
-          You can speak naturally or choose an option below.
+        <p className="text-base font-bold text-[#5F6B64]">
+          You can speak naturally or choose an option.
         </p>
 
         <div className="pt-2">
           <button
             onClick={handleVoiceTrigger}
-            className={`w-28 h-28 rounded-full mx-auto flex items-center justify-center transition-all shadow-2xl touch-target ${
+            className={`w-28 h-28 rounded-full mx-auto flex items-center justify-center transition-all shadow-md touch-target ${
               isListening
-                ? 'bg-[#35D6C5] text-[#070B16] ring-8 ring-[#35D6C5]/40 animate-pulse'
-                : 'bg-[#142039] hover:bg-[#1C2B49] text-[#35D6C5] border-4 border-[#35D6C5]'
+                ? 'bg-[#16834B] text-white ring-8 ring-[#16834B]/30 animate-pulse'
+                : 'bg-white text-[#16834B] border-4 border-[#16834B] hover:bg-[#E8F5EE]'
             }`}
             aria-label="Talk to EasyLife"
           >
             <Mic className="w-12 h-12" />
           </button>
-          <div className="mt-3 font-extrabold text-lg text-[#35D6C5]">
+          <div className="mt-3 font-extrabold text-xl text-[#0B3D2A]">
             {isListening ? 'Listening now...' : '🎙️ Talk to EasyLife'}
           </div>
         </div>
 
         {voiceQuery && (
-          <div className="bg-[#0B1222] p-4 rounded-2xl border-2 border-[#35D6C5] text-[#F4F7FB] font-bold text-lg max-w-xl mx-auto">
-            EasyLife understood: "{voiceQuery}" — Displaying relevant care options!
+          <div className="bg-white p-4 rounded-2xl border-2 border-[#16834B] text-[#101814] font-bold text-lg max-w-xl mx-auto">
+            EasyLife understood: "{voiceQuery}" — Displaying care options below!
           </div>
         )}
       </section>
 
-      {/* 6 Primary Service Cards */}
-      <section className="space-y-4">
+      {/* Main Service Section */}
+      <section className="space-y-6">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4F7FB]">What do you need today?</h2>
-          <p className="text-base font-semibold text-[#8492A8]">Choose one. We'll guide you from there.</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-[#101814]">What do you need today?</h2>
+          <p className="text-lg font-bold text-[#5F6B64]">Choose one. We'll guide you step by step.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -210,24 +215,19 @@ export const Home: React.FC = () => {
               <Link
                 key={card.to}
                 to={card.to}
-                className={`p-6 rounded-3xl bg-[#101A2E] border-3 transition-all shadow-lg flex flex-col justify-between space-y-4 touch-target ${card.accent} focus:ring-4 focus:ring-[#35D6C5]`}
+                className="p-8 rounded-3xl bg-white border-2 border-[#CFE8DA] hover:border-[#16834B] transition-all shadow-sm hover:shadow-md hover:-translate-y-1 flex flex-col justify-between space-y-6 touch-target focus:ring-4 focus:ring-[#16834B]"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="w-14 h-14 bg-[#0B1222] text-[#35D6C5] rounded-2xl flex items-center justify-center border border-[#2B3E68] shadow">
-                      <Icon className="w-8 h-8" />
-                    </div>
-                    <span className="bg-[#0B1222] text-[#B8C4D8] font-bold px-3 py-1 rounded-full text-xs uppercase border border-[#2B3E68]">
-                      {card.badge}
-                    </span>
+                <div className="space-y-4">
+                  <div className="w-16 h-16 bg-[#E8F5EE] text-[#16834B] rounded-2xl flex items-center justify-center border border-[#CFE8DA]">
+                    <Icon className="w-9 h-9" />
                   </div>
-                  <h3 className="text-2xl font-black text-[#F4F7FB]">{card.title}</h3>
-                  <p className="text-base font-semibold text-[#B8C4D8] leading-relaxed">{card.desc}</p>
+                  <h3 className="text-2xl sm:text-3xl font-black text-[#101814]">{card.title}</h3>
+                  <p className="text-base sm:text-lg font-bold text-[#5F6B64] leading-relaxed">{card.desc}</p>
                 </div>
 
-                <div className="pt-2 flex items-center font-black text-lg text-[#35D6C5] gap-2">
+                <div className="pt-2 flex items-center font-black text-xl text-[#16834B] gap-2">
                   <span>Open {card.title}</span>
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-6 h-6" />
                 </div>
               </Link>
             );
@@ -235,68 +235,67 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Signature Features Highlight Section */}
-      <section className="bg-[#101A2E] rounded-3xl p-6 sm:p-8 border-2 border-[#1C2B49] shadow-xl space-y-6">
+      {/* Signature Features */}
+      <section className="bg-white rounded-3xl p-8 border-2 border-[#CFE8DA] shadow-sm space-y-6">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4F7FB]">
-            EasyLife doesn't just show you information.
+          <h2 className="text-3xl font-black text-[#101814]">
+            EasyLife helps you understand what to do next.
           </h2>
-          <p className="text-base text-[#B8C4D8] font-semibold">
-            It helps you understand what to do next.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: 'Explain This', desc: 'Turns difficult digital language into simple language.', icon: Sparkles, color: 'text-[#35D6C5]' },
-            { title: 'Show Me', desc: 'Guides you visually through one step at a time.', icon: Footprints, color: 'text-[#4DA3FF]' },
-            { title: 'Scam Shield', desc: 'Helps identify warning signs in suspicious messages.', icon: ShieldCheck, color: 'text-[#FFC857]' },
-            { title: 'I\'m Stuck', desc: 'Provides immediate recovery options.', icon: CircleHelp, color: 'text-[#FF5C67]' },
+            { title: '1. Explain This', desc: 'Turn complicated digital language into simple words.', icon: Sparkles },
+            { title: '2. Show Me', desc: 'Follow one clear step at a time.', icon: Footprints },
+            { title: '3. Scam Shield', desc: 'Understand warning signs in suspicious messages.', icon: ShieldCheck },
+            { title: '4. I\'m Stuck', desc: 'Get help when you don\'t know what to do next.', icon: CircleHelp },
           ].map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="bg-[#0B1222] p-5 rounded-2xl border border-[#2B3E68] space-y-2">
-                <Icon className={`w-8 h-8 ${item.color}`} />
-                <h3 className="text-xl font-extrabold text-[#F4F7FB]">{item.title}</h3>
-                <p className="text-sm font-semibold text-[#8492A8]">{item.desc}</p>
+              <div key={idx} className="bg-[#F8FAF8] p-6 rounded-2xl border-2 border-[#CFE8DA] space-y-3">
+                <div className="w-12 h-12 bg-[#E8F5EE] text-[#16834B] rounded-xl flex items-center justify-center font-bold">
+                  <Icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-black text-[#101814]">{item.title}</h3>
+                <p className="text-base font-bold text-[#5F6B64] leading-relaxed">{item.desc}</p>
               </div>
             );
           })}
         </div>
       </section>
 
-      {/* Quick Navigation Portal Links for Judges */}
-      <section className="bg-[#0B1222] rounded-3xl p-6 border-2 border-[#2B3E68] flex flex-wrap items-center justify-between gap-4">
+      {/* Hackathon Judge Portals Header Bar */}
+      <section className="bg-[#E8F5EE] rounded-3xl p-6 border-2 border-[#CFE8DA] flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h4 className="text-xl font-extrabold text-[#FFC857]">Hackathon Judge Showcase Links</h4>
-          <p className="text-sm text-[#8492A8] font-medium">Explore prompt engineering, visual problem breakdowns, and user research.</p>
+          <h4 className="text-xl font-black text-[#0B3D2A]">Hackathon Showcase Portals</h4>
+          <p className="text-sm font-bold text-[#5F6B64]">Inspect prompt engineering, visual problem research, and design principles.</p>
         </div>
 
         <div className="flex flex-wrap gap-3">
           <Link
             to="/prompt-lab"
-            className="bg-[#101A2E] hover:bg-[#142039] text-[#35D6C5] font-extrabold px-4 py-2.5 rounded-xl text-sm border border-[#35D6C5]/40 flex items-center gap-1.5 touch-target"
+            className="bg-white hover:bg-[#E8F5EE] text-[#16834B] font-extrabold px-4 py-2.5 rounded-xl text-sm border-2 border-[#16834B] flex items-center gap-1.5 touch-target shadow-xs"
           >
             <Code className="w-4 h-4" />
             <span>Prompt Lab</span>
           </Link>
           <Link
             to="/problem"
-            className="bg-[#101A2E] hover:bg-[#142039] text-[#FF5C67] font-extrabold px-4 py-2.5 rounded-xl text-sm border border-[#FF5C67]/40 flex items-center gap-1.5 touch-target"
+            className="bg-white hover:bg-[#E8F5EE] text-[#101814] font-extrabold px-4 py-2.5 rounded-xl text-sm border-2 border-[#CFE8DA] flex items-center gap-1.5 touch-target shadow-xs"
           >
-            <AlertTriangle className="w-4 h-4" />
+            <AlertTriangle className="w-4 h-4 text-[#C88700]" />
             <span>The Problem</span>
           </Link>
           <Link
             to="/research"
-            className="bg-[#101A2E] hover:bg-[#142039] text-[#4DA3FF] font-extrabold px-4 py-2.5 rounded-xl text-sm border border-[#4DA3FF]/40 flex items-center gap-1.5 touch-target"
+            className="bg-white hover:bg-[#E8F5EE] text-[#101814] font-extrabold px-4 py-2.5 rounded-xl text-sm border-2 border-[#CFE8DA] flex items-center gap-1.5 touch-target shadow-xs"
           >
-            <Users className="w-4 h-4" />
-            <span>User Research</span>
+            <Users className="w-4 h-4 text-[#16834B]" />
+            <span>Research</span>
           </Link>
           <Link
             to="/demo"
-            className="bg-[#35D6C5] hover:bg-[#2cb5a6] text-[#070B16] font-extrabold px-4 py-2.5 rounded-xl text-sm flex items-center gap-1.5 touch-target shadow"
+            className="bg-[#16834B] hover:bg-[#0B3D2A] text-white font-extrabold px-4 py-2.5 rounded-xl text-sm flex items-center gap-1.5 touch-target shadow"
           >
             <Sparkles className="w-4 h-4" />
             <span>Guided Demo Mode</span>
