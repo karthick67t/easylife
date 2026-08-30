@@ -2,30 +2,57 @@
 
 @layer base {
   :root {
-    --bg-color: #fcfbf7;
-    --text-color: #1e293b;
-    --card-bg: #ffffff;
-    --border-color: #cbd5e1;
-    --primary-color: #1e40af;
-    --primary-hover: #1d4ed8;
+    /* EasyLife Midnight Care Color Palette */
+    --bg-primary: #070B16;
+    --bg-secondary: #0B1222;
+    --bg-surface: #101A2E;
+    --bg-surface-elevated: #142039;
+
+    --text-primary: #F4F7FB;
+    --text-secondary: #B8C4D8;
+    --text-muted: #8492A8;
+
+    --accent-primary: #35D6C5; /* Cyan */
+    --accent-secondary: #4DA3FF; /* Blue */
+    --accent-warm: #FFC857; /* Gold */
+    --accent-danger: #FF5C67;
+    --accent-success: #45D483;
+
+    --border-subtle: #1C2B49;
+    --border-contrast: #2B3E68;
   }
 
   html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
-    font-size: 18px; /* Default minimum 18px as required */
+    font-size: 18px; /* Default minimum 18px */
   }
 
-  /* High Contrast Mode CSS Overrides */
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  /* High Contrast Mode Overrides */
   html.high-contrast {
-    --bg-color: #000000;
-    --text-color: #ffffff;
-    --card-bg: #121212;
-    --border-color: #ffffff;
-    --primary-color: #facc15;
-    --primary-hover: #eab308;
+    --bg-primary: #000000;
+    --bg-secondary: #0A0A0A;
+    --bg-surface: #121212;
+    --bg-surface-elevated: #1E1E1E;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #FFF8DC;
+    --text-muted: #FFD700;
+
+    --accent-primary: #FFC857;
+    --accent-secondary: #FFD700;
+    --accent-warm: #FFC857;
+    --border-subtle: #FFFFFF;
+    --border-contrast: #FFFFFF;
     color-scheme: dark;
   }
 
@@ -72,19 +99,29 @@
 
   /* Focus indicator for Accessibility */
   *:focus-visible {
-    outline: 4px solid #f59e0b !important;
+    outline: 4px solid #35D6C5 !important;
     outline-offset: 3px !important;
   }
 }
 
-/* Custom Accessibility Utilities */
+/* Custom Accessibility & Touch Utilities */
 .touch-target {
-  min-width: 48px;
-  min-height: 48px;
+  min-width: 52px;
+  min-height: 52px;
 }
 
-.high-contrast-card {
-  background-color: var(--card-bg);
-  border: 2px solid var(--border-color);
-  color: var(--text-color);
+.midnight-card {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 20px;
+  color: var(--text-primary);
+  padding: 24px;
+}
+
+.midnight-card-elevated {
+  background-color: var(--bg-surface-elevated);
+  border: 2px solid var(--border-contrast);
+  border-radius: 24px;
+  color: var(--text-primary);
+  padding: 28px;
 }

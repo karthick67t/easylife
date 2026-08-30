@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { AccessibilityProvider, useAccessibility } from './context/AccessibilityContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { AppProvider } from './context/AppContext';
@@ -17,6 +17,10 @@ import { HackathonDemoBar } from './components/HackathonDemoBar';
 
 // Pages
 import { Home } from './pages/Home';
+import { PromptLab } from './pages/PromptLab';
+import { ProblemPage } from './pages/ProblemPage';
+import { UserResearch } from './pages/UserResearch';
+import { GuidedDemoPage } from './pages/GuidedDemoPage';
 import { Healthcare } from './pages/Healthcare';
 import { MoneyBanking } from './pages/MoneyBanking';
 import { Travel } from './pages/Travel';
@@ -38,7 +42,7 @@ const AppContent: React.FC = () => {
     <LanguageProvider language={language}>
       <AppProvider>
         <Router>
-          <div className="min-h-screen flex flex-col bg-[#fcfbf7] text-slate-900 selection:bg-amber-400 selection:text-slate-950">
+          <div className="min-h-screen flex flex-col bg-[#070B16] text-[#F4F7FB] selection:bg-[#35D6C5] selection:text-[#070B16]">
             {/* Sticky 90-Sec Hackathon Pitch Demo Bar */}
             <HackathonDemoBar />
 
@@ -49,9 +53,13 @@ const AppContent: React.FC = () => {
             <ShowMeOverlay />
 
             {/* Main Content Area */}
-            <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6 mb-20 focus:outline-none" tabIndex={-1}>
+            <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6 mb-24 focus:outline-none" tabIndex={-1}>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/prompt-lab" element={<PromptLab />} />
+                <Route path="/problem" element={<ProblemPage />} />
+                <Route path="/research" element={<UserResearch />} />
+                <Route path="/demo" element={<GuidedDemoPage />} />
                 <Route path="/healthcare" element={<Healthcare />} />
                 <Route path="/money" element={<MoneyBanking />} />
                 <Route path="/travel" element={<Travel />} />
